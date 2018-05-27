@@ -74,7 +74,7 @@ public class Main {
 	
 	public static void main(String[]args) throws IOException {
 		System.out.println("Started Merge Job");
-		BasicAWSCredentials credentials = new BasicAWSCredentials("PRIVATE", "CREDENTIALS");
+		BasicAWSentials credentials = new BasicAWSCredentials("PRIVATE", "CREDENTIALS");
 		AmazonS3 s3 = AmazonS3ClientBuilder.standard()
 				.withCredentials(new AWSStaticCredentialsProvider(credentials))
 				.withRegion("us-east-1") 
@@ -99,8 +99,8 @@ public class Main {
 			job3.setOutputKeyClass(Text.class);
 			job3.setOutputValueClass(Text.class);
 			job3.setInputFormatClass(KeyValueTextInputFormat.class);
-			FileInputFormat.addInputPath(job3, new Path("s3n://outputjob/outputjob2/part*"));
-			FileOutputFormat.setOutputPath(job3, new Path("s3n://outputjob/outputjob3/"));
+			FileInputFormat.addInputPath(job3, new Path("INPUT PATH FROM splitJob OUTPUT/part*"));
+			FileOutputFormat.setOutputPath(job3, new Path("OUTPUT PATH"));
 			try {
 				System.exit(job3.waitForCompletion(true) ? 0 : 1);
 			} catch (ClassNotFoundException e) {
