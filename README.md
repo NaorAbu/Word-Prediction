@@ -9,4 +9,4 @@ sortJob - just for the secondary sort of values.
 
 The job Launcher runs the job flow over AWS services.
 
-This project made to know better AWS system and get familiar with big data programing.
+This project made to know better AWS system and get familiar disturbted file system such as Hadoop.
